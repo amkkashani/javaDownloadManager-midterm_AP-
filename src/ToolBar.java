@@ -1,9 +1,12 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ToolBar {
-    JToolBar toolBar=new JToolBar();
-    public ToolBar(JToolBar tool){
-        toolBar=tool;
+    JToolBar toolBar = new JToolBar();
+
+    public ToolBar(JToolBar tool) {
+        toolBar = tool;
         JButton start = new JButton();
         start.setIcon(new ImageIcon("start.jpg"));
         start.setToolTipText("start");
@@ -28,8 +31,21 @@ public class ToolBar {
         toolBar.add(remove);
         toolBar.add(pause);
         toolBar.add(seting);
+        seting.addActionListener(new click());
     }
-    public JToolBar getToolBar(){
+
+    public JToolBar getToolBar() {
         return toolBar;
+    }
+
+    class click implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            if (((JButton) e.getSource()).getToolTipText().equals("setting")) {
+                System.out.println("salam");
+                SettingPage settingPage = new SettingPage();
+            }
+        }
     }
 }

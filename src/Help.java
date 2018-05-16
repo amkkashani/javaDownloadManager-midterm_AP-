@@ -2,11 +2,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 
 public class Help {
     JMenu jMenu=new JMenu("Help");
     public Help(){
         JMenuItem item=new JMenuItem("about");
+        item.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H , ActionEvent.CTRL_MASK));
+        item.setMnemonic(KeyEvent.VK_A);
         item.addActionListener(new clic());
         jMenu.setFont(new Font("fff",50,25));
         jMenu.add(item);
